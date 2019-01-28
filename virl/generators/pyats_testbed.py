@@ -77,6 +77,9 @@ def pyats_testbed_generator(env,
         device_name = str(props.get("NodeName", None))
         console_port = str(props.get("PortConsole", None))
 
+        if device_type not in ['nxos', 'iosxr', 'iosxe', 'ios', 'mgmt-lxc',
+                               'server', 'LXC FLAT']:
+            continue
         # map node types to known abstraction
         os = None
         if 'NX' in device_type:
